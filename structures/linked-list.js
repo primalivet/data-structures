@@ -1,10 +1,5 @@
-function LinkedList (...datas) {
+function LinkedList () {
   this.head = undefined
-
-  // add all the datas as new nodes
-  while (datas.length) {
-    this.addNode(datas.shift())
-  }
 }
 
 LinkedList.prototype.createNode = function (data) {
@@ -39,22 +34,40 @@ LinkedList.prototype.addNode = function (data = undefined) {
 LinkedList.prototype.insertAfter = function (targetData, data) {
   const node = this.createNode(data)
 
+  if (this.head === undefined) {
+    throw new Error('insertAfter on empty list')
+  }
+
   let currentNode = this.head
+  let targetNode
 
   while (currentNode.next !== undefined) {
     if (currentNode.data === targetData) {
-      node.next = currentNode.next
-      currentNode.next = node
+      targetNode = currentNode
       break
     }
     currentNode = currentNode.next
   }
 
+  if (targetNode === undefined) {
+    throw new Error('insertAfter with no matching target')
+  }
+  node.next = targetNode.next
+  targetNode.next = node
+
   return this
 }
 
-// TODO: removeAfter - remove node after target node
+LinkedList.prototype.insertBeginning = function (data) {
+  const node = this.createNode(data)
+  node.next = this.head
+  this.head = node
+
+  return this
+}
+
 // TODO: inserBeginning - insert node before first node
+// TODO: removeAfter - remove node after target node
 // TODO: removeBegining - remove the first node
 
 module.exports = LinkedList
