@@ -1,0 +1,20 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "chokidar \"**/*.test.js\" -c \"tap **/*.test.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prettier-standard": "^9.1.1",
+    "standard": "^12.0.1",
+    "tap": "^12.4.0"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.1",
+    "nodemon": "^1.18.9"
+  }
+}
