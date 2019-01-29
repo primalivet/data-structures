@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "chokidar \"**/*.test.js\" -c \"tap **/*.test.js\""
+    "test": "chokidar --silent \"**/*.js\" -c \"tap **/*.test.js\""
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.1",
+    "faucet": "0.0.1",
     "nodemon": "^1.18.9"
   }
 }

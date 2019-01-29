@@ -66,8 +66,40 @@ LinkedList.prototype.insertBeginning = function (data) {
   return this
 }
 
-// TODO: inserBeginning - insert node before first node
-// TODO: removeAfter - remove node after target node
-// TODO: removeBegining - remove the first node
+LinkedList.prototype.removeAfter = function (targetData) {
+  let currentNode = this.head
+  let targetNode
+
+  while (true) {
+    if (currentNode.data === targetData) {
+      targetNode = currentNode
+      break
+    }
+
+    if (currentNode.next === undefined) {
+      break
+    } else {
+      currentNode = currentNode.next
+    }
+  }
+
+  if (targetNode === undefined) {
+    throw new Error('removeAfter with no matching target')
+  }
+
+  if (targetNode.next === undefined) {
+    throw Error('removeAfter on last node of the list')
+  }
+
+  targetNode.next = targetNode.next.next
+
+  return this
+}
+
+LinkedList.prototype.removeBegining = function () {
+  this.head = this.head.next
+
+  return this
+}
 
 module.exports = LinkedList
