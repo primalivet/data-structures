@@ -68,7 +68,7 @@ tap.test('should return result right of root', t => {
   t.end()
 })
 
-tap.test('should return false', t => {
+tap.test('should return false when searching for non existing value', t => {
   const tree = new BinaryTree()
   tree.addNode(30)
   tree.addNode(10)
